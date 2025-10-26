@@ -1,0 +1,243 @@
+# AirBnB Clone Database - Git Ignore Rules
+
+# ========================================
+# Environment and Secrets
+# ========================================
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+secrets/
+credentials/
+
+# ========================================
+# Database Files
+# ========================================
+*.db
+*.sqlite
+*.sqlite3
+*.sql.backup
+*.sql.bak
+*.dump
+
+# Database dump files
+dumps/
+backups/
+
+# ========================================
+# IDE and Editor Files
+# ========================================
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs (PyCharm, IntelliJ, DataGrip, etc.)
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.*.swp
+.*.swo
+
+# Emacs
+*~
+\#*\#
+.\#*
+
+# ========================================
+# Operating System Files
+# ========================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# Linux
+*~
+.directory
+
+# ========================================
+# Python
+# ========================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+virtualenv/
+
+# Pipenv
+Pipfile.lock
+
+# Poetry
+poetry.lock
+
+# ========================================
+# Django
+# ========================================
+*.log
+db.sqlite3
+db.sqlite3-journal
+/media
+/staticfiles
+/static
+
+# Django migrations (optional - uncomment if you don't want to track them)
+# */migrations/*.py
+# !*/migrations/__init__.py
+
+# ========================================
+# Node.js (if using any JS tools)
+# ========================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# ========================================
+# Docker
+# ========================================
+docker-compose.override.yml
+.dockerignore
+
+# ========================================
+# Testing and Coverage
+# ========================================
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+.nox/
+
+# ========================================
+# Documentation
+# ========================================
+docs/_build/
+docs/.buildinfo
+site/
+
+# ========================================
+# Logs
+# ========================================
+*.log
+logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ========================================
+# Temporary Files
+# ========================================
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+
+# ========================================
+# Draw.io Temporary Files
+# ========================================
+*.drawio.bkp
+*.drawio.dtmp
+*.dtmp
+
+# ========================================
+# Database Client Exports
+# ========================================
+*.csv.bak
+*.xlsx.tmp
+
+# ========================================
+# Git-specific
+# ========================================
+*.orig
+*.rej
+
+# ========================================
+# Project-Specific
+# ========================================
+
+# Keep Draw.io source files but ignore autosaves
+!*.drawio
+*.drawio~
+
+# Keep SQL scripts but ignore test outputs
+!*.sql
+test_output/
+
+# Keep documentation but ignore drafts
+!*.md
+drafts/
+wip/
+
+# ========================================
+# CI/CD
+# ========================================
+.github/workflows/*.log
+
+# ========================================
+# Miscellaneous
+# ========================================
+.cache/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
