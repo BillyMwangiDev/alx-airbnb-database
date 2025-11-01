@@ -2,49 +2,50 @@
 
 ## Overview
 
-This directory contains SQL queries demonstrating JOIN operations and subqueries using the AirBnB Clone database schema.
+This directory contains SQL queries for the AirBnB Clone database, including joins, subqueries, aggregations, and window functions.
 
 ## Files
 
 ### `joins_queries.sql`
-Contains three main queries:
-1. **INNER JOIN**: Retrieves all bookings with their respective users
-2. **LEFT JOIN**: Retrieves all properties with their reviews (including properties with no reviews)
-3. **FULL OUTER JOIN**: Retrieves all users and all bookings, even if unlinked
+SQL queries using different join types:
+- **INNER JOIN**: Retrieves all bookings with their respective users
+- **LEFT JOIN**: Retrieves all properties with their reviews (including properties with no reviews)
+- **FULL OUTER JOIN**: Retrieves all users and all bookings, even if unlinked
+- Additional examples: COUNT reviews per property, users with no bookings
 
 ### `subqueries.sql`
-Contains subquery examples:
-1. **Non-Correlated Subquery**: Finds all properties where the average rating is greater than 4.0
-2. **Correlated Subquery**: Finds users who have made more than 3 bookings
+Subquery implementations:
+- **Non-Correlated Subquery**: Finds properties where average rating is greater than 4.0
+- **Correlated Subquery**: Finds users who have made more than 3 bookings
+- Alternative approaches: GROUP BY/HAVING, EXISTS clause
 
-## Query Details
+### `aggregations_and_window_functions.sql`
+Aggregation and ranking queries:
+- **COUNT with GROUP BY**: Total number of bookings per user
+- **Window Functions**: Ranks properties by booking count using ROW_NUMBER, RANK, and DENSE_RANK
+- Additional features: SUM/AVG aggregations, PARTITION BY, cumulative calculations, percentile ranking
 
-### Query 1: INNER JOIN
-Retrieve all bookings and the respective users who made those bookings.
+## Features
 
-Returns only rows where there's a match in both tables. Bookings without a valid user_id are excluded.
+### Joins
+- Combines data from multiple tables (User, Booking, Property, Review)
+- Handles NULL values appropriately with LEFT and FULL OUTER JOINs
+- Returns complete booking information with user details
+- Returns all properties regardless of review status
 
-### Query 2: LEFT JOIN
-Retrieve all properties and their reviews, including properties that have no reviews.
+### Subqueries
+- Non-correlated subqueries for independent filtering
+- Correlated subqueries for user-specific calculations
+- Efficient property filtering by rating averages
+- User booking count analysis
 
-Returns all rows from the Property table. For properties without reviews, review columns will be NULL.
-
-### Query 3: FULL OUTER JOIN
-Retrieve all users and all bookings, even if the user has no booking or a booking is not linked to a user.
-
-Returns all rows from both tables. Users without bookings will have NULL booking columns. Orphaned bookings will have NULL user columns.
-
-## Subquery Details
-
-### Query 1: Non-Correlated Subquery
-Find all properties where the average rating is greater than 4.0.
-
-Uses a non-correlated subquery in the WHERE clause with IN clause. The subquery executes independently without referencing the outer query and returns property_ids where average rating > 4.0.
-
-### Query 2: Correlated Subquery
-Find users who have made more than 3 bookings.
-
-Uses a correlated subquery that references the outer query's user_id. The subquery executes once per user and checks the booking count.
+### Aggregations and Window Functions
+- Booking counts per user and property
+- Revenue calculations (total, average, min, max)
+- Property rankings by popularity (booking count)
+- Location-based rankings with PARTITION BY
+- Cumulative booking and revenue tracking
+- Percentile and distribution analysis
 
 ## Usage
 
@@ -59,6 +60,7 @@ Uses a correlated subquery that references the outer query's user_id. The subque
 ```bash
 psql -U your_username -d airbnb_clone -f database-adv-script/joins_queries.sql
 psql -U your_username -d airbnb_clone -f database-adv-script/subqueries.sql
+psql -U your_username -d airbnb_clone -f database-adv-script/aggregations_and_window_functions.sql
 ```
 
 **Using PostgreSQL Client:**
@@ -73,4 +75,3 @@ Open the query files in your client and execute individual queries or the entire
 
 **Author:** Billy Mwangi  
 **Date:** October 26, 2025
-
